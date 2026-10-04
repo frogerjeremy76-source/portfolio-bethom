@@ -1,0 +1,902 @@
+/* =========================================================
+   BeThom – Portfolio de Thomas, graphiste
+   Feuille de style unique – approche "desktop first"
+   Maquette de référence : 1440px (desktop) / 375px (mobile)
+   ========================================================= */
+
+/* ---------- 1. Variables (couleurs relevées sur la maquette) ---------- */
+:root {
+  --c-text: #21243d;        /* titres et textes */
+  --c-black: #000000;       /* logo, menu, bloc contact */
+  --c-white: #ffffff;
+  --c-bg-light: #edf7fa;    /* fond section articles + cercle photo */
+  --c-badge: #142850;       /* badges année */
+  --c-divider: #e0e0e0;     /* séparateurs portfolio */
+  --c-input: #f7f7f7;       /* fond des champs */
+
+  /* Couleurs ajustées pour respecter le contraste WCAG AA (4.5:1).
+     Valeurs d'origine de la maquette en commentaire. */
+  --c-accent: #d63b3b;      /* maquette : #ff6464 (2.9:1 avec texte blanc) */
+  --c-grey: #6a7886;        /* maquette : #8695a4 (3.1:1) */
+  --c-link: #007a94;        /* maquette : #00a8cc (2.6:1) */
+  --c-placeholder: #6b6b6b; /* maquette : #b2b2b2 */
+
+  --font: "Heebo", "Poppins", Arial, sans-serif;
+  --header-h: 80px;
+  --gutter: 24px;
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h); /* les ancres ne passent pas sous le menu fixe */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  padding-top: var(--header-h); /* compense le menu fixe */
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--c-text);
+  background: var(--c-white);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--c-link);
+  outline-offset: 3px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1232px; /* 1184px de contenu + 2 × 24px de marge */
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Lien d'évitement : visible uniquement au clavier */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  z-index: 200;
+  padding: 8px 16px;
+  background: var(--c-text);
+  color: var(--c-white);
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+.section-title {
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 32px;
+  color: var(--c-text);
+}
+
+/* ---------- 3. En-tête et menu fixe ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--header-h);
+  background: var(--c-white);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--c-black);
+  text-decoration: none;
+}
+
+.main-nav__list {
+  display: flex;
+}
+
+/* Espacements irréguliers relevés sur la maquette (desktop) */
+.main-nav__list li:nth-child(2) { margin-left: 91px; }
+.main-nav__list li:nth-child(3) { margin-left: 69px; }
+.main-nav__list li:nth-child(4) { margin-left: 54px; }
+
+.main-nav__list a {
+  display: block;
+  padding-top: 4px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  color: var(--c-black);
+  text-decoration: none;
+}
+
+.main-nav__list a:hover {
+  color: var(--c-accent);
+}
+
+.burger {
+  display: none; /* visible seulement en mobile */
+}
+
+/* ---------- 4. Accueil (hero) ---------- */
+.hero {
+  padding: 123px 0 92px;
+}
+
+.hero__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.hero__text {
+  max-width: 620px;
+  padding-top: 11px;
+}
+
+.hero__title {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 60px;
+}
+
+.hero__desc {
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn--primary {
+  margin-top: 33px;
+  padding: 0 14px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 47px;
+  color: var(--c-white);
+  background: var(--c-accent);
+}
+
+.btn--primary:hover {
+  background: #b92f2f;
+}
+
+/* Photo : cercle bleu clair décalé derrière la photo ronde */
+.hero__photo {
+  position: relative;
+  flex-shrink: 0;
+  width: 256px;
+  height: 256px;
+}
+
+.hero__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--c-bg-light);
+}
+
+.hero__photo img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 243px;
+  height: 243px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ---------- 5. Articles récents ---------- */
+.posts {
+  padding: 22px 0 32px;
+  background: var(--c-bg-light);
+}
+
+.posts__inner {
+  max-width: 1238px; /* cartes légèrement plus larges sur la maquette */
+}
+
+.posts__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.posts__all {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--c-link);
+  text-decoration: none;
+}
+
+.posts__all:hover {
+  text-decoration: underline;
+}
+
+.posts__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 543px));
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.post-card {
+  min-height: 295px;
+  padding: 31px 23px 40px;
+  background: var(--c-white);
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(171, 190, 209, 0.3);
+}
+
+.post-card__title {
+  max-width: 380px;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 38px;
+}
+
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  margin-top: 23px;
+  font-size: 18px;
+  line-height: 26px;
+}
+
+.post-card__sep {
+  width: 1px;
+  height: 20px;
+  margin: 0 49px 0 54px;
+  background: var(--c-text);
+}
+
+.post-card__excerpt {
+  max-width: 455px;
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* ---------- 6. Portfolio ---------- */
+.works {
+  padding: 52px 0 23px;
+}
+
+.works__title {
+  margin-bottom: 35px;
+  padding-left: 2px;
+}
+
+.work {
+  position: relative;
+  display: grid;
+  grid-template-columns: 246px 1fr;
+  column-gap: 90px;
+  align-items: start;
+  padding: 0 0 32px;
+  margin-bottom: 32px;
+}
+
+/* Séparateur : plus court que le texte, comme sur la maquette */
+.work::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 858px;
+  height: 2px;
+  background: var(--c-divider);
+}
+
+.work:first-of-type {
+  padding-bottom: 16px;
+}
+
+.work__body {
+  margin-top: -6px;
+}
+
+.work__img {
+  width: 246px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.work__name {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.work__meta {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 15px;
+}
+
+.work__year {
+  padding: 0 11px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  color: var(--c-white);
+  background: var(--c-badge);
+  border-radius: 16px;
+}
+
+.work__cat {
+  font-size: 20px;
+  line-height: 29px;
+  color: var(--c-grey);
+}
+
+.work__desc {
+  max-width: 830px;
+  margin-top: 19px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* ---------- 7. Contact ---------- */
+.contact {
+  padding: 0 0 115px;
+}
+
+.contact__title {
+  padding-left: 12px;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 540px) minmax(0, 562px);
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 41px;
+  padding: 0 20px 0 5px;
+  column-gap: 40px;
+}
+
+.contact__info {
+  color: var(--c-black);
+}
+
+.contact__heading {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.contact__intro {
+  margin-top: 24px;
+  font-size: 20px;
+  line-height: 29px;
+}
+
+.contact__subheading {
+  margin-top: 62px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40px;
+}
+
+.contact__mail {
+  margin-top: 24px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.contact__mail a {
+  text-decoration: none;
+}
+
+.contact__mail a:hover {
+  text-decoration: underline;
+}
+
+.contact__socials {
+  margin-top: 20px;
+}
+
+.contact__socials li + li {
+  margin-top: 20px;
+}
+
+.contact__socials a {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* Formulaire */
+.form__field {
+  margin-bottom: 30px;
+}
+
+.form__field label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--c-black);
+}
+
+.form__field input,
+.form__field select,
+.form__field textarea {
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 0 15px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--c-black);
+  background-color: var(--c-input);
+  border: 1px solid transparent;
+  border-radius: 0;
+}
+
+.form__field textarea {
+  height: 164px;
+  padding: 12px 15px;
+  resize: vertical;
+}
+
+/* Liste déroulante : flèche personnalisée (SVG inline) */
+.form__field select {
+  appearance: none;
+  padding-right: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23000' stroke-width='1.8'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 35px center;
+  cursor: pointer;
+}
+
+/* Tant qu'aucune option n'est choisie, le texte ressemble à un placeholder */
+.form__field select:invalid,
+.form__field input::placeholder,
+.form__field textarea::placeholder {
+  color: var(--c-placeholder);
+}
+
+.form__field option {
+  color: var(--c-black);
+}
+
+.form__field input:focus,
+.form__field select:focus,
+.form__field textarea:focus {
+  border-color: var(--c-text);
+  outline: none;
+}
+
+.form__submit {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin-top: -1px;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--c-white);
+  background: var(--c-black);
+  border: 0;
+  cursor: pointer;
+}
+
+.form__submit:hover {
+  background: var(--c-text);
+}
+
+/* ---------- 8. Pied de page ---------- */
+.site-footer {
+  padding: 0 16px 50px;
+  text-align: center;
+}
+
+.site-footer__socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+}
+
+.site-footer__socials a {
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.site-footer__socials a:hover {
+  opacity: 0.7;
+}
+
+.site-footer__socials img {
+  height: 34px;
+  width: auto;
+}
+
+.site-footer__copy {
+  margin-top: 26px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* =========================================================
+   9. TABLETTE (768px – 1199px)
+   La mise en page desktop est conservée, les largeurs fixes
+   deviennent fluides.
+   ========================================================= */
+@media (max-width: 1199px) {
+  :root {
+    --gutter: 40px;
+  }
+
+  .main-nav__list li:nth-child(n + 2) {
+    margin-left: 48px;
+  }
+
+  .hero {
+    padding: 80px 0 72px;
+  }
+
+  .work {
+    column-gap: 48px;
+  }
+
+  .contact__grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+    padding: 0;
+  }
+
+  .contact__title {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .hero__title {
+    font-size: 38px;
+    line-height: 52px;
+  }
+
+  .hero__photo {
+    width: 210px;
+    height: 210px;
+  }
+
+  .hero__photo img {
+    width: 199px;
+    height: 199px;
+  }
+
+  .post-card__sep {
+    margin: 0 20px;
+  }
+
+  .work__name {
+    font-size: 26px;
+    line-height: 38px;
+  }
+
+  /* Contact : le formulaire passe sous le bloc d'infos */
+  .contact__grid {
+    grid-template-columns: 1fr;
+    row-gap: 48px;
+  }
+}
+
+/* =========================================================
+   10. MOBILE (≤ 767px) – maquette 375px
+   ========================================================= */
+@media (max-width: 767px) {
+  :root {
+    --gutter: 18px;
+    --header-h: 70px;
+  }
+
+  /* --- Menu burger --- */
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 34px;
+    height: 26px;
+    padding: 2px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .burger__line {
+    display: block;
+    height: 1.5px;
+    background: var(--c-text);
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  .burger[aria-expanded="true"] .burger__line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .burger[aria-expanded="true"] .burger__line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger[aria-expanded="true"] .burger__line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  .main-nav {
+    position: absolute;
+    top: var(--header-h);
+    left: 0;
+    width: 100%;
+    background: var(--c-white);
+    box-shadow: 0 8px 12px rgba(33, 36, 61, 0.08);
+  }
+
+  .main-nav__list li:nth-child(n + 2) {
+    margin-left: 0;
+  }
+
+  .main-nav__list {
+    display: none;
+    flex-direction: column;
+    padding: 8px var(--gutter) 16px;
+  }
+
+  .main-nav__list a {
+    padding: 10px 0;
+  }
+
+  /* Sans JavaScript, le menu reste affiché (pas de contenu bloqué) */
+  .no-js .main-nav__list,
+  .main-nav__list.is-open {
+    display: flex;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    padding: 13px 0 42px;
+  }
+
+  .hero__inner {
+    flex-direction: column-reverse; /* la photo passe au-dessus du texte */
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero__text {
+    padding-top: 0;
+  }
+
+  .hero__photo {
+    width: 178px;
+    height: 178px;
+  }
+
+  .hero__photo img {
+    width: 171px;
+    height: 171px;
+  }
+
+  .hero__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+
+  .hero__desc {
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .btn--primary {
+    margin-top: 20px;
+  }
+
+  /* --- Articles --- */
+  .posts {
+    padding: 22px 0 36px;
+  }
+
+  .posts__inner {
+    padding: 0 10px;
+  }
+
+  .posts__head {
+    justify-content: center;
+    margin-bottom: 9px;
+  }
+
+  .posts .section-title,
+  .works__title {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+  }
+
+  .posts__all {
+    display: none; /* absent de la maquette mobile */
+  }
+
+  .posts__list {
+    grid-template-columns: 1fr;
+    gap: 17px;
+  }
+
+  .post-card {
+    min-height: 0;
+    padding: 11px 20px 44px;
+  }
+
+  .post-card__title {
+    max-width: none;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  .post-card__meta {
+    margin-top: 12px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .post-card__sep {
+    margin: 0 23px 0 25px;
+  }
+
+  .post-card__excerpt {
+    margin-top: 18px;
+  }
+
+  /* --- Portfolio --- */
+  .works {
+    padding: 22px 0 0;
+  }
+
+  .works__title {
+    margin-bottom: 18px;
+    padding-left: 0;
+  }
+
+  .work {
+    grid-template-columns: 1fr;
+    padding-bottom: 28px;
+    margin-bottom: 42px;
+  }
+
+  .work::after {
+    max-width: none;
+  }
+
+  .work:first-of-type {
+    padding-bottom: 28px;
+  }
+
+  .work__img {
+    width: 100%;
+    height: auto; /* chaque visuel garde ses proportions, comme sur la maquette */
+    margin-bottom: 21px;
+    border-radius: 4px;
+  }
+
+  .work__name {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .work__meta {
+    gap: 22px;
+    margin-top: 15px;
+  }
+
+  .work__year {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .work__cat {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .work__desc {
+    margin-top: 22px;
+  }
+
+  /* --- Contact --- */
+  .contact {
+    padding-bottom: 52px;
+  }
+
+  .contact__title {
+    margin-top: 22px;
+  }
+
+  .contact__grid {
+    margin-top: 32px;
+    padding: 0 2px;
+  }
+
+  .contact__info {
+    display: none; /* la maquette mobile n'affiche que le formulaire */
+  }
+
+  .form__field label {
+    margin-bottom: 16px;
+  }
+
+  .form__field {
+    margin-bottom: 29px;
+  }
+
+  .form__submit {
+    margin-top: -10px;
+    font-weight: 400;
+  }
+
+  /* --- Pied de page --- */
+  .site-footer {
+    padding-top: 10px;
+    padding-bottom: 60px;
+  }
+}

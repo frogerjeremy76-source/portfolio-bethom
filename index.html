@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BeThom – Thomas, graphiste freelance | Portfolio</title>
+  <meta name="description" content="Portfolio de Thomas, graphiste freelance : design d'interfaces, illustration et typographie. Découvrez mes articles, mes travaux et contactez-moi.">
+  <meta name="author" content="Thomas – BeThom">
+  <meta name="theme-color" content="#21243D">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <!-- Police Heebo (Google Fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&amp;display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/menu.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <!-- ===== EN-TÊTE / MENU FIXE ===== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="#accueil">BeThom</a>
+
+      <button class="burger" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Ouvrir le menu">
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+        <span class="burger__line"></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul class="main-nav__list" id="menu-principal">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+
+    <!-- ===== ACCUEIL ===== -->
+    <section class="hero" id="accueil">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <h1 class="hero__title">Hi, Je suis Thomas, <br>Graphiste</h1>
+          <p class="hero__desc">Passionné par le code et le design, j’aide les entreprises et les créateurs à développer des sites modernes, performants et adaptés à leurs besoins. Mon objectif est de transformer vos idées en expériences numériques fluides et efficaces.</p>
+          <a class="btn btn--primary" href="documents/CV.pdf" download="CV-Thomas-Graphiste.pdf" type="application/pdf">Télécharger mon CV</a>
+        </div>
+        <div class="hero__photo">
+          <img src="images/thomas-photo.webp" width="243" height="243" alt="Portrait de Thomas, souriant, portant une casquette bleu marine et un t-shirt gris, en bord de mer">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ARTICLES / BLOG ===== -->
+    <section class="posts" id="blog" aria-labelledby="titre-articles">
+      <div class="container posts__inner">
+        <div class="posts__head">
+          <h2 class="section-title" id="titre-articles">Articles récents</h2>
+          <a class="posts__all" href="#blog" lang="en">View all</a>
+        </div>
+
+        <div class="posts__list">
+          <article class="post-card">
+            <h3 class="post-card__title">Créer un design system à partir de zéro</h3>
+            <p class="post-card__meta">
+              <time datetime="2020-02-12">12 Feb 2020</time>
+              <span class="post-card__sep" aria-hidden="true"></span>
+              <span>Design, Pattern</span>
+            </p>
+            <p class="post-card__excerpt">Dans cet article, je partage mon approche pour mettre en place un design system clair et efficace, afin de garantir la cohérence visuelle d’un projet digital.</p>
+          </article>
+
+          <article class="post-card">
+            <h3 class="post-card__title">Créer des icônes pixel perfect dans Figma</h3>
+            <p class="post-card__meta">
+              <time datetime="2020-02-12">12 Feb 2020</time>
+              <span class="post-card__sep" aria-hidden="true"></span>
+              <span>Figma, Icon Design</span>
+            </p>
+            <p class="post-card__excerpt">Découvrez mes techniques pour concevoir des icônes nettes et précises dans Figma, adaptées aussi bien au web qu’aux applications mobiles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="works" id="portfolio" aria-labelledby="titre-travaux">
+      <div class="container">
+        <h2 class="section-title works__title" id="titre-travaux">Travaux en vedette</h2>
+
+        <article class="work">
+          <img class="work__img" src="images/projet-dashboard.webp" width="339" height="230" alt="Aperçu d’un tableau de bord sombre avec menu latéral et graphiques de suivi de données" loading="lazy">
+          <div class="work__body">
+            <h3 class="work__name">Design de tableaux de bord</h3>
+            <p class="work__meta">
+              <span class="work__year">2020</span>
+              <span class="work__cat">Dashboard</span>
+            </p>
+            <p class="work__desc">Un projet de conception d’interface utilisateur pour une plateforme de gestion. L’objectif était de proposer un tableau de bord intuitif et esthétique.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <img class="work__img" src="images/projet-portraits.webp" width="339" height="200" alt="Illustration d’une femme au visage rose et aux longs cheveux violets ornés d’une fleur jaune, sur fond pêche" loading="lazy">
+          <div class="work__body">
+            <h3 class="work__name">Portraits vibrants de 2020</h3>
+            <p class="work__meta">
+              <span class="work__year">2018</span>
+              <span class="work__cat">Illustration</span>
+            </p>
+            <p class="work__desc">Série d’illustrations numériques réalisées avec une palette de couleurs audacieuses, explorant l’identité et l’émotion à travers le portrait.</p>
+          </div>
+        </article>
+
+        <article class="work">
+          <img class="work__img" src="images/projet-typographie.webp" width="339" height="184" alt="Lettre malayalam stylisée de couleur crème avec ornements dorés, sur fond brun foncé" loading="lazy">
+          <div class="work__body">
+            <h3 class="work__name">36 jours de typographie</h3>
+            <p class="work__meta">
+              <span class="work__year">2018</span>
+              <span class="work__cat" lang="en">Typography</span>
+            </p>
+            <p class="work__desc">Un projet créatif consistant à explorer et styliser les caractères de la typographie malayalam à travers une série de visuels graphiques.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact" aria-labelledby="titre-contact">
+      <div class="container">
+        <h2 class="section-title contact__title" id="titre-contact">Me contacter</h2>
+
+        <div class="contact__grid">
+          <div class="contact__info">
+            <h3 class="contact__heading">Parlons-en</h3>
+            <p class="contact__intro">Vous avez une grande idée ou un projet à développer et besoin d’aide ? Contactez-moi, je serai ravi d’échanger avec vous et de vous accompagner.</p>
+
+            <h3 class="contact__subheading">Email</h3>
+            <p class="contact__mail"><a href="mailto:beebs@gmail.com">beebs@gmail.com</a></p>
+
+            <h3 class="contact__subheading">Socials</h3>
+            <ul class="contact__socials">
+              <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://twitter.com/" target="_blank" rel="noopener">Twitter</a></li>
+              <li><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook</a></li>
+            </ul>
+          </div>
+
+          <form class="form" action="mailto:beebs@gmail.com" method="post" enctype="text/plain">
+            <div class="form__field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" autocomplete="name" required>
+            </div>
+            <div class="form__field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form__field">
+              <label for="service">Quel service vous intéresse</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select project type</option>
+                <option value="ui-design">Design d’interface (UI)</option>
+                <option value="illustration">Illustration</option>
+                <option value="typographie">Typographie</option>
+                <option value="site-web">Site web</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label for="budget">Budget</label>
+              <select id="budget" name="budget" required>
+                <option value="" disabled selected>Select project budget</option>
+                <option value="moins-1000">Moins de 1 000 €</option>
+                <option value="1000-3000">1 000 € – 3 000 €</option>
+                <option value="3000-5000">3 000 € – 5 000 €</option>
+                <option value="plus-5000">Plus de 5 000 €</option>
+              </select>
+            </div>
+            <div class="form__field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" required></textarea>
+            </div>
+            <button class="form__submit" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== PIED DE PAGE ===== -->
+  <footer class="site-footer">
+    <ul class="site-footer__socials">
+      <li><a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook (nouvel onglet)"><img src="images/icons/square-facebook.svg" width="30" height="34" alt=""></a></li>
+      <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram (nouvel onglet)"><img src="images/icons/instagram.svg" width="30" height="34" alt=""></a></li>
+      <li><a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter (nouvel onglet)"><img src="images/icons/twitter.svg" width="34" height="34" alt=""></a></li>
+      <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn (nouvel onglet)"><img src="images/icons/linkedin.svg" width="30" height="34" alt=""></a></li>
+    </ul>
+    <p class="site-footer__copy">Copyright ©2020 All rights reserved</p>
+  </footer>
+</body>
+</html>
